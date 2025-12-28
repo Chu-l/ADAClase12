@@ -9,5 +9,4 @@ while (num >= 0) {
     suma += num;
     num = Number(prompt("Ingrese otro numero (ingrese uno negativo para terminar): "));
 };
-
-console.log("La suma total es: ", suma);
+console.log(`La suma total es: ${suma}`);
