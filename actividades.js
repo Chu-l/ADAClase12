@@ -30,7 +30,7 @@ Nuestra tarea es contar la cantidad de números impares que hay desde el número
 6. Al fi nalizar el ciclo, imprimir en consola la cantidad de números impares encontrados.
 7. Utiliza el operador módulo (%) para verifi car si un número es impar.
 8. Ejemplo de Ejecución: Si el usuario ingresa 10, el programa debe imprimir: “La cantidad de números impares desde 0 hasta 10 (inclusive) es: 5” ***/
-
+/*
 let num = Number(prompt("Ingrese un  numero: "));
 let impar = 0;
 for (let i=0 ; i<=num ; i++ ) {
@@ -39,3 +39,19 @@ for (let i=0 ; i<=num ; i++ ) {
     }
 };
 console.log("Total de numeros impares: " + impar);
+*/
+/*** Ejercicio 4: Ciclo For - Array
+Crear un programa que permita registrar las notas de varios estudiantes usando arrays y mostrarlas por pantalla:
+1. Crear un array para almacenar las notas.
+2. Defina un array vacío llamado notas donde almacenaremos las notas de los estudiantes.
+3. Pide al usuario que ingrese las notas de varios estudiantes una por una utilizando el método prompt.
+4. Usa un bucle for para solicitar las notas y asignarlas directamente a posiciones específicas del array notas.
+5. Imprime en consola las notas ingresadas usando el array notas. ***/
+
+let notas = [];
+let totalNotas = Number(prompt("Ingrese el total de notas: "));
+
+for (let i=0 ; i<totalNotas ; i++ ) {
+    notas[i] = Number(prompt("Ingrese una nota: "));
+};
+console.log(notas);
