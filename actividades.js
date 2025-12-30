@@ -86,8 +86,13 @@ let matriz = [
 [5, 125, 10, 1020, 4],
 [5, 5, 5097, 100, 4]
 ];***/
-
-let matriz = [[10, 3, 2, 1, 4, 7], [5, 5, 10, 100, 4], [5, 125, 10, 1020, 4], [5, 5, 5097, 100, 4]];
+/*
+let matriz = [
+[10, 3, 2, 1, 4, 7], 
+[5, 5, 10, 100, 4], 
+[5, 125, 10, 1020, 4], 
+[5, 5, 5097, 100, 4]
+];
 let suma = 0;
 for (let i=0 ; i<matriz.length; i++) {
     for (let j=0 ; j<matriz[i].length; j++) {
@@ -96,4 +101,22 @@ for (let i=0 ; i<matriz.length; i++) {
         };
     };
 };
-console.log(suma);
+console.log(suma); 
+*/
+/*** Ejercicio 7: Matriz 5x5
+Declara una variable que contenga una matriz de 5x5 llena de puros números enteros y positivos. Luego, escribe un algoritmo para sumar todos los números en la matriz. ***/
+
+let matriz = [
+    [1,  2,  3,  4,  5],
+    [6,  7,  8,  9, 10],
+    [11, 12, 13, 14, 15],
+    [16, 17, 18, 19, 20],
+    [21, 22, 23, 24, 25]
+];
+let suma = 0;
+for (let i = 0; i < matriz.length; i++) {
+    for (let j = 0; j < matriz[i].length; j++) {
+        suma += matriz[i][j];
+    }
+}
+console.log("La suma total de la matriz es:", suma);
