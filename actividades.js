@@ -58,7 +58,7 @@ console.log(notas);
 */
 /*** Ejercicio 5: Uso de Arrays y Condicionales
 Crea un programa que solicite al usuario ingresar 5 nombres y los almacene en un array. Luego, solicita al usuario ingresar un nombre y verifica si ese nombre se encuentra en el array. (Pueden desglosar en pasos el código si eso les facilita su desarrollo). ***/
-
+/*
 let nombres = [];
 for (let i=0 ; i<5 ; i++) {
     nombres[i] = prompt("Ingrese un nombre: ").toUpperCase();
@@ -77,3 +77,23 @@ if (encontrado) {
 } else {
     console.log("El nombre no se encuentra en el array");
 }
+*/
+/*** Ejercicio 6: Iguales a 10 pero menores de 1000
+Dada una matriz, recorrer sus valores y sumar solo los números que estén por encima o sean iguales a 10, pero menores que 1000.
+let matriz = [
+[10, 3, 2, 1, 4, 7], 
+[5, 5, 10, 100, 4], 
+[5, 125, 10, 1020, 4],
+[5, 5, 5097, 100, 4]
+];***/
+
+let matriz = [[10, 3, 2, 1, 4, 7], [5, 5, 10, 100, 4], [5, 125, 10, 1020, 4], [5, 5, 5097, 100, 4]];
+let suma = 0;
+for (let i=0 ; i<matriz.length; i++) {
+    for (let j=0 ; j<matriz[i].length; j++) {
+        if (matriz[i][j]>=10 && matriz[i][j]<1000) {
+            suma += matriz[i][j];
+        };
+    };
+};
+console.log(suma);
