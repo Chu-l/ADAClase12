@@ -47,7 +47,7 @@ Crear un programa que permita registrar las notas de varios estudiantes usando a
 3. Pide al usuario que ingrese las notas de varios estudiantes una por una utilizando el método prompt.
 4. Usa un bucle for para solicitar las notas y asignarlas directamente a posiciones específicas del array notas.
 5. Imprime en consola las notas ingresadas usando el array notas. ***/
-
+/*
 let notas = [];
 let totalNotas = Number(prompt("Ingrese el total de notas: "));
 
@@ -55,3 +55,25 @@ for (let i=0 ; i<totalNotas ; i++ ) {
     notas[i] = Number(prompt("Ingrese una nota: "));
 };
 console.log(notas);
+*/
+/*** Ejercicio 5: Uso de Arrays y Condicionales
+Crea un programa que solicite al usuario ingresar 5 nombres y los almacene en un array. Luego, solicita al usuario ingresar un nombre y verifica si ese nombre se encuentra en el array. (Pueden desglosar en pasos el código si eso les facilita su desarrollo). ***/
+
+let nombres = [];
+for (let i=0 ; i<5 ; i++) {
+    nombres[i] = prompt("Ingrese un nombre: ").toUpperCase();
+};
+let buscarNombre = prompt("Ingrese un nombre para buscar: ").toUpperCase();
+let encontrado = false;
+
+for (let i = 0; i < nombres.length; i++) {
+    if (buscarNombre === nombres[i]) {
+        encontrado = true;
+        break; // para salir del for inmediatamente
+    }
+}
+if (encontrado) {
+    console.log("El nombre se encuentra en el array");
+} else {
+    console.log("El nombre no se encuentra en el array");
+}
