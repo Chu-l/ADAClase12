@@ -128,7 +128,7 @@ b) La otra va a marcar los valores de la diagonal marcada en verde.
 Ambas funciones deben devolver un resultado único. Rojo: 505
 Verde 505
 IMPORTANTE: Para hacer este ejercicio, tendrán que investigar sobre el método “push” en los Arrays. ¡Este método lo veremos en las próximas clases, pero si desean pueden investigarlo para resolver este desafío!***/
-
+/*
 let matriz = [
  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
  [11,12,13,14,15,16,17,18,19,20],
@@ -165,3 +165,86 @@ function sumarDiagonalVerde(matriz) {
 
 console.log("Rojo:", sumarDiagonalRoja(matriz));   // 505
 console.log("Verde:", sumarDiagonalVerde(matriz)); // 505
+*/
+/*** Ejercicio 9: Última aparición de un modelo de auto
+Se está realizando el desarrollo de una aplicación para control de gastos. Cada día, el usuario ingresa sus gastos cotidianos.
+La idea es solo registrar el total de los gastos, al finalizar la jornada.
+Para simplificar, vamos a considerar que todos los meses tienen cuatro semanas.
+Los gastos estarán en una matriz de 4x7, cada fila representa una semana y cada columna un día. Es decir, fila 0, semana 1, fila 1, semana 2, etc. Columna 0, día 1, columna 1, día 2, etcétera.
+a) Lo que nos solicitan es dar el total de gastos en una semana. Recordemos que cada fila representa una semana, es decir, si nos indican semana 2 tenemos que sumar la fila 1 de la matriz. Recordar que las matrices comienzan siempre en posición 0.
+b) La aplicación también tendrá una parte de estadísticas, para esto nos solicitan dar el total de un día en particular, por ejemplo del día 3, acá también tengamos en cuenta lo que ocurre con las filas, ya que las columnas también comienzan en 0.
+c) Por último, es necesario tener el total de gastos realizados en el mes.
+✔ Pregunta para pensar, ¿es lo mismo recorrer por filas o por columnas para resolver este último punto?
+d) Obtener cuál fue la semana que más gastos se realizaron. Indicar el día que más gastos se realizaron.
+✔ Posibles matrices para comprobar los resultados. ***/
+
+let gastos = [
+    [1135, 2500, 900, 1600, 2800, 650, 1100],   // Semana 1
+    [1750, 1890, 1900, 1300, 898, 1750, 2800],  // Semana 2
+    [1700, 1150, 1690, 1900, 1770, 500, 2560],  // Semana 3
+    [800, 1250, 1430, 2100, 1980, 1270, 950]    // Semana 4
+];
+//Total de gastos en una semana
+console.log("***Consultar Gastos por Semana***");
+let semanaConsultada = parseInt(prompt("Ingrese el Nro de Semana para ver gastos (1-4): ")) - 1;
+let totalSemana = 0;
+for (let j=0; j<gastos[semanaConsultada].length; j++) {
+    totalSemana += gastos[semanaConsultada][j];
+};
+console.log("Total de gastos de la semana " + (semanaConsultada + 1) + ":",
+    totalSemana);
+
+//Total de gastos en un día
+console.log("***Consultar Gastos por Día***");
+let diaConsultado = parseInt(prompt("Ingrese el Nro de Día para ver el gasto (1-7): ")) - 1;
+let totalDia = 0;
+for (let i=0; i<4; i++) {
+    totalDia += gastos[i][diaConsultado];
+};
+console.log("El total de gastos del Día " + (diaConsultado + 1) + " es: $" + totalDia);
+
+//Total de gastos en el mes
+console.log("***Gasto Total del Mes***");
+let totalMes = 0;
+for (let i=0; i<gastos.length; i++) {
+        for (let j = 0; j < gastos[i].length; j++) {
+            totalMes += gastos[i][j];
+        }
+    }
+console.log("Total del mes: $" + totalMes);
+
+//Semana que más gastos se realizaron
+console.log("***Semana con mayor gasto***");
+let mayorGastoSemana = 0;
+let semanaMayor = 0;
+for (let i = 0; i < gastos.length; i++) {
+    let sumaSemana = 0;
+    //Suma de la semana completa
+    for (let j = 0; j < gastos[i].length; j++) {
+        sumaSemana += gastos[i][j];
+    }
+    //Comparación
+    if (sumaSemana > mayorGastoSemana) {
+        mayorGastoSemana = sumaSemana;
+        semanaMayor = i;
+    }
+}
+console.log("La semana con mayor gasto fue la semana " + (semanaMayor + 1) + " con un total de $" + mayorGastoSemana);
+
+//Día que más gastos se realizaron
+console.log("***Día con mayor gasto***");
+let mayorGastoDia = 0;
+let diaMayor = 0;
+for (let j = 0; j < gastos[0].length; j++) {
+    let sumaDia = 0;
+    // Para cada día se suma el gasto de las 4 semanas (recorrido vertical).
+    for (let i = 0; i < gastos.length; i++) {
+        sumaDia += gastos[i][j];
+    }
+    //Comparación
+    if (sumaDia > mayorGastoDia) {
+        mayorGastoDia = sumaDia;
+        diaMayor = j;
+    }
+}
+console.log("El día con mayor gasto fue el día " + (diaMayor + 1) + " con un total de $" + mayorGastoDia);
